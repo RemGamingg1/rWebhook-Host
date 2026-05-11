@@ -10,9 +10,6 @@ process.env.LOG_WEBHOOK;
 const PMS_WEBHOOK =
 process.env.PMS_WEBHOOK;
 
-const THIRD_WEBHOOK =
-process.env.THIRD_WEBHOOK;
-
 const OVERSPEEDING_WEBHOOK =
 process.env.OVERSPEEDING_WEBHOOK;
 
@@ -63,17 +60,6 @@ app.post("/pms", async (req, res) => {
 
     const success = await sendWebhook(
         PMS_WEBHOOK,
-        req.body
-    );
-
-    res.sendStatus(success ? 200 : 500);
-
-});
-
-app.post("/third", async (req, res) => {
-
-    const success = await sendWebhook(
-        THIRD_WEBHOOK,
         req.body
     );
 
